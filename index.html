@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Othello</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: darkslategray;
+        }
+
+        button {
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            height: 60px;
+            width: 60px;
+            margin: 0px;
+        }
+
+        .chess-board {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            color: aliceblue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .chess-board th {
+            padding: .5em;
+        }
+
+        .chess-board td {
+            text-align: center;
+            border: none;
+            width: 4em;
+            height: 4em;
+        }
+
+        .chess-board .light {
+            background: rgb(226, 226, 226);
+        }
+
+        .chess-board .dark {
+            background: rgb(42, 141, 75);
+        }
+
+        .centerWhite {
+            border: 2.7px rgb(20, 128, 113) solid;
+            background-Color: #FFFFFF
+        }
+
+        .centerBlack {
+            border: 2.5px rgb(25, 191, 168) solid;
+            background-Color: rgb(20, 20, 30);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conteiner">
+        <table class="chess-board">
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                </tr>
+                <tr>
+                    <th>a</th>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+                <tr>
+                    <th>b</th>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+                <tr>
+                    <th>c</th>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+                <tr>
+                    <th>d</th>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="1" class="centerWhite"></button>
+                    </td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="2" class="centerBlack"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+                <tr>
+                    <th>e</th>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="2" class="centerBlack"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="1" class="centerWhite"></button>
+                    </td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+                <tr>
+                    <th>f</th>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+                <tr>
+                    <th>g</th>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+                <tr>
+                    <th>h</th>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="dark"><button onclick="alternar(event)" data-count="0"></button></td>
+                    <td class="light"><button onclick="alternar(event)" data-count="0"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function alternar(e) {
+            var target = e.target,
+                count = Number(target.dataset.count) + 1;
+            if (count === 3) count = 0;
+            target.dataset.count = count;
+
+            switch (count) {
+                case 0: target.style.border = "none";
+                    target.style.backgroundColor = "rgba(0, 0, 0, 0)"; break;
+
+                case 1: target.style.border = "2.5px rgb(20, 128, 113) solid";
+                    target.style.backgroundColor = '#FFFFFF'; break;
+
+                case 2: target.style.border = "2.5px rgb(25, 191, 168) solid";
+                    target.style.backgroundColor = "rgb(20, 20, 30)"; break;;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
